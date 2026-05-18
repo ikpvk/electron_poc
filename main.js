@@ -2,7 +2,10 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
-const configPath = path.join(__dirname, "config.json");
+const configPath = path.join(
+  app.isPackaged ? path.dirname(app.getPath("exe")) : __dirname,
+  "config.json"
+);
 
 app.whenReady().then(() => {
   let url = "https://www.google.com";

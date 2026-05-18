@@ -3,9 +3,21 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.example.webapp-wrapper",
+    "productName": "Web App Wrapper",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "package.json", "config.json"],
+    "win": { "target": ["portable"] },
+    "portable": {
+      "artifactName": "WebAppWrapper.exe"
+    }
   },
   "devDependencies": {
-    "electron": "^36.0.0"
+    "electron": "^36.0.0",
+    "electron-builder": "^25.1.8"
   }
 }
