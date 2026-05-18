@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>Electron POC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="titlebar">
+    <button id="back-btn" title="Back to home">←</button>
+    <span id="titlebar-drag">Electron POC</span>
+    <div id="window-controls">
+      <button id="min-btn" class="control-btn" title="Minimize">—</button>
+      <button id="max-btn" class="control-btn" title="Maximize">□</button>
+      <button id="close-btn" class="control-btn" title="Close">×</button>
+    </div>
+  </div>
+
+  <div id="home-view">
+    <div id="home-content">
+      <h1>Enter a URL</h1>
+      <div id="input-row">
+        <input type="text" id="url-input" placeholder="https://example.com" autofocus />
+        <button id="go-btn">Go</button>
+      </div>
+    </div>
+  </div>
+
+  <webview id="webview" style="display:none"></webview>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

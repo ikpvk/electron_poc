@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#titlebar {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  background: #16213e;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+#back-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  padding: 0 12px;
+  height: 100%;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  display: flex;
+  align-items: center;
+}
+
+#back-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+#titlebar-drag {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  -webkit-app-region: drag;
+  line-height: 36px;
+}
+
+#window-controls {
+  display: flex;
+  height: 100%;
+  -webkit-app-region: no-drag;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  width: 46px;
+  height: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", "Arial Unicode MS", sans-serif;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+#close-btn:hover {
+  background: #e81123;
+  color: #fff;
+}
+
+#home-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-content {
+  text-align: center;
+}
+
+#home-content h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #e0e0e0;
+}
+
+#input-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+#url-input {
+  width: 480px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #0f3460;
+  color: #eee;
+  outline: none;
+}
+
+#url-input:focus {
+  border-color: #e94560;
+}
+
+#url-input::placeholder {
+  color: #888;
+}
+
+#go-btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #e94560;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#go-btn:hover {
+  background: #ff6b81;
+}
+
+#webview {
+  flex: 1;
+  border: none;
+}
