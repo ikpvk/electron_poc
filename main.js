@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require("path");
 
 function promptHTML() {
   return `<!DOCTYPE html>
@@ -41,7 +42,7 @@ function launch() {
   var url = document.getElementById("url").value.trim();
   if (!url) return;
   if (!/^https?:\/\//i.test(url)) url = "https://" + url;
-  window.location.href = url;
+  window.electronAPI.navigateTo(url);
 }
 document.getElementById("go").addEventListener("click", launch);
 document.getElementById("url").addEventListener("keydown", function(e) {
@@ -53,8 +54,18 @@ document.getElementById("url").addEventListener("keydown", function(e) {
 }
 
 app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 1200, height: 800 });
+  const win = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+    },
+  });
   win.loadURL("data:text/html," + encodeURIComponent(promptHTML()));
+});
+
+ipcMain.on("navigate-to", (_event, url) => {
+  BrowserWindow.getAllWindows()[0]?.loadURL(url);
 });
 
 app.on("window-all-closed", () => {
