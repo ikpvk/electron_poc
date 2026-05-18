@@ -1,5 +1,5 @@
 {
-  "name": "electron_poc",
+  "name": "webapp-wrapper",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
